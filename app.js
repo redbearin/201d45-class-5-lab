@@ -127,7 +127,7 @@ function sumArray(sumArr) { //eslint-disable-line
 // While this was not the approach requested in the assignment, it seems to work.
 
 
-var sumAndMultiply = {
+/*var sumAndMultiply = {
   myArray: [1, 3, 4],
   sumTotal: function() {
     var x = 0;
@@ -151,6 +151,8 @@ sumAndMultiply.myArray = [2,3,4];
 sumAndMultiply.sumTotal();
 console.log(sumAndMultiply.myArray[0] + " , " + sumAndMultiply.myArray[1] + " , " + sumAndMultiply.myArray[2] + " was passed in as an array of numbers and " + sumAndMultiply.sumTotal + " is their sum.");
 
+*/
+
 // Here is the test for sumArray(); uncomment it to run it
 
 // testSumArray(testArray);
@@ -169,9 +171,31 @@ Test this function by hand in the console to get it working, and when you think 
 
 /*// Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
-
-}
 */
+//This works, but uses an object so the code checker is not going to work.
+var sumAndMultiply = {
+  myArray: [1, 3, 4],
+  sumTotal: function() {
+    var x = 0;
+    for (var i = 0; i < this.myArray.length; i++) {
+      x = x + this.myArray[i]; 
+      console.log(x);
+    }
+    return [this.myArray, "The numbers " + this.myArray[0], " , " + this.myArray[1] + " , " + this.myArray[2] + " have a product of " + x + " ."];
+  },
+  multiplyTotalArray: function() {
+    var y = 1;
+    for (var i = 0; i < this.myArray.length; i++) {
+      y = y * this.myArray[i]; 
+      console.log(y);
+    }
+    return [this.myArray];
+  }
+};
+ 
+sumAndMultiply.myArray = [2,3,4];
+sumAndMultiply.sumTotal();
+
 
 // Here is the test for multiplyArray(); uncomment it to run it
 // testMultiplyArray(testArray);
