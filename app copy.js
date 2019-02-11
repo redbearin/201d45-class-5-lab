@@ -69,6 +69,15 @@ passes.*/
 
 // Write your code here
 //eslint-disable-line
+function sumAndMultiply(a,b,c)
+  var sum_of_first_two = sum (a,b)[0];
+  var sum_of_three = sum(sum_of_first_two, c)[0];
+  var result_sum_str = a + ' and ' + b + ' and ' + c + 'sum to' + sum_of_three + ' .'.
+  debugger;
+
+
+  return [sum_of_three, product_of_three, result_sum_str, result_product_string];
+
 /*/This works, but you won't be able to test it using the test file since I created an object.
 var sumAndMultiply = {
   myNumbers: [1, 3, 4],
@@ -127,12 +136,13 @@ function sumArray(sumArr) { //eslint-disable-line
 // While this was not the approach requested in the assignment, it seems to work.
 
 
-var sumAndMultiply = {
+/*var sumAndMultiply = {
   myArray: [1, 3, 4],
   sumTotal: function() {
     var x = 0;
     for (var i = 0; i < this.myArray.length; i++) {
-      x = x + this.myArray[i];
+      x = x + this.myArray[i]; 
+      console.log(x);
     }
     return x;
   },
@@ -143,16 +153,14 @@ var sumAndMultiply = {
       console.log(y);
     }
     return y;
-  },
-  summary: function() {
-    return (this.myArray[0] + " , " + this.myArray[1] + " , " + this.myArray[2] + " was passed in as an array of numbers and " + this.sumTotal() + " is their sum.");
   }
 };
  
 sumAndMultiply.myArray = [2,3,4];
 sumAndMultiply.sumTotal();
-sumAndMultiply.summary();
+console.log(sumAndMultiply.myArray[0] + " , " + sumAndMultiply.myArray[1] + " , " + sumAndMultiply.myArray[2] + " was passed in as an array of numbers and " + sumAndMultiply.sumTotal + " is their sum.");
 
+*/
 
 // Here is the test for sumArray(); uncomment it to run it
 
@@ -173,7 +181,7 @@ Test this function by hand in the console to get it working, and when you think 
 /*// Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
 */
-/*//This works, but uses an object so the code checker is not going to work.
+//This works, but uses an object so the code checker is not going to work.
 var sumAndMultiply = {
   myArray: [1, 3, 4],
   sumTotal: function() {
