@@ -12,7 +12,7 @@ call for the testSum() function below and check the console to see if the test p
 
 // Write your code here
 //eslint-disable-line
-/*//This section of the code is working now.
+//This section of the code is working now.
 function sum(a, b) { 
   var resultSum = a + b;
   var resultString = 'The sum of ' + a + ' and ' + b + ' is ' + resultSum + '.';
@@ -21,7 +21,7 @@ function sum(a, b) {
 
 // Here is the test for sum(); uncomment it to run it
 testSum(4, 7);
-*/
+
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -35,7 +35,7 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 //eslint-disable-line
-/*//Question 2 is working
+//Question 2 is working
 function multiply(a, b) {
   var resultProduct = a * b;
   var resultString = 'The product of ' + a + ' and ' + b + ' is ' + resultProduct + '.';
@@ -69,36 +69,22 @@ passes.*/
 
 // Write your code here
 //eslint-disable-line
-/*/This works, but you won't be able to test it using the test file since I created an object.
-var sumAndMultiply = {
-  myNumbers: [1, 3, 4],
-  sumTotal: function() {
-    var x = 0;
-    for (var i = 0; i < this.myNumbers.length; i++) {
-      x = x + this.myNumbers[i]; 
-      console.log(x);
-    }
-    return x;
-  },
-  multiplyTotal: function() {
-    var y = 1;
-    for (var i = 0; i < this.myNumbers.length; i++) {
-      y = y * this.myNumbers[i]; 
-      console.log(y);
-    }
-    return y;
-  }
-};
- 
-sumAndMultiply.myNumbers = [4,7,5];
-sumAndMultiply.sumTotal();
-sumAndMultiply.multiplyTotal();
-console.log([sumAndMultiply.sumTotal(),sumAndMultiply.multiplyTotal(), sumAndMultiply.myNumbers[0] + " and " + sumAndMultiply.myNumbers[1] + " and " + sumAndMultiply.myNumbers[2] + " sum to " + sumAndMultiply.sumTotal() + ".", " The product of " + sumAndMultiply.myNumbers[0] + " and " + sumAndMultiply.myNumbers[1] + " and " + sumAndMultiply.myNumbers[2] + " is " + sumAndMultiply.sumTotal() + "."]);
+function sumAndMultiply(a, b, c) {
+  var sum_of_first_two = sum(a, b)[0];
+  var sum_of_three = sum(sum_of_first_two, c)[0];
+  var result_sum_str = (a + ' and ' + b + ' and ' + c + ' sum to ' + sum_of_three + '.');
+  
+  var product_of_first_two = multiply(a, b)[0];
+  var product_of_three = multiply(product_of_first_two, c)[0];
+  var result_product_str = ("The product of " + a + ' and ' + b + ' and ' + c + ' is ' + product_of_three + '.'); 
+
+  return ([sum_of_three, product_of_three, result_sum_str, result_product_str]);
+}
 
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
 testSumAndMultiply(4,7,5);
-*/
+
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -116,47 +102,53 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
+/*var testArray = [2, 3, 4]; //eslint-disable-line
 
-/*// Write your code here
-var testArray = [2, 3, 4]; //eslint-disable-line
+function sumArray(sumArr) */
 
-function sumArray(sumArr) { //eslint-disable-line
-*/
-
-// I did this in question 3. I just recopied my code here with a few minor modification to the text.
-// While this was not the approach requested in the assignment, it seems to work.
+// Write your code here
+// NOTE: This is very confusing, because the function name and variable names that are
+// passed out of the function are the same. In the future it might be a good idea to 
+// make a change so the coe is easier to modify.
 
 
-var sumAndMultiply = {
-  myArray: [1, 3, 4],
-  sumTotal: function() {
-    var x = 0;
-    for (var i = 0; i < this.myArray.length; i++) {
-      x = x + this.myArray[i];
-    }
-    return x;
-  },
-  multiplyTotal: function() {
-    var y = 1;
-    for (var i = 0; i < this.myArray.length; i++) {
-      y = y * this.myArray[i]; 
-      console.log(y);
-    }
-    return y;
-  },
-  summary: function() {
-    return (this.myArray[0] + " , " + this.myArray[1] + " , " + this.myArray[2] + " was passed in as an array of numbers and " + this.sumTotal() + " is their sum.");
+// Write your code here
+
+
+
+function sumArray(sumArr) {
+  var sumLeftWithText = sum(sumArr[0], sumArr[1]);
+  var sumTotalWithText = sum(sumLeftWithText[0], sumArr[2]);
+  var totalSum = sumTotalWithText[0];
+  return([totalSum, sumArr[0] + ',' + sumArr[1] + ',' + sumArr[2] + ' was passed in as an array of numbers, and 9 is their sum.']);
+}
+
+// Here is the test for sumArray(); uncomment it to run it
+var testArr = [2, 3, 4];
+testSumArray(testArr);
+
+
+/*Nicholas
+function sumArr(array_of_nums) { // changing vars for clarity
+  var x = 0;
+  for (var i = 0; i < array_of_nums.length; i++) {
+    x = x + array_of_nums[i];
   }
-};
+  return x;
+ }
  
-sumAndMultiply.myArray = [2,3,4];
-sumAndMultiply.sumTotal();
-sumAndMultiply.summary();
+ function makeMessage(any_number) { //functions take in named parameters, not function calls.
+  return ('' + testArray[0] + ', ' + testArray[1] + ', ' + testArray[2] + ' was passed in as an array of numbers, and ' + any_number + ' is their sum.');
+ }
+ 
+ var testArray = [2,3,4];
+ makeMessage(sumArr(testArray));
 
+*/
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+//testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -173,33 +165,18 @@ Test this function by hand in the console to get it working, and when you think 
 /*// Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
 */
-/*//This works, but uses an object so the code checker is not going to work.
-var sumAndMultiply = {
-  myArray: [1, 3, 4],
-  sumTotal: function() {
-    var x = 0;
-    for (var i = 0; i < this.myArray.length; i++) {
-      x = x + this.myArray[i]; 
-      console.log(x);
-    }
-    return [this.myArray, "The numbers " + this.myArray[0], " , " + this.myArray[1] + " , " + this.myArray[2] + " have a product of " + x + " ."];
-  },
-  multiplyTotalArray: function() {
-    var y = 1;
-    for (var i = 0; i < this.myArray.length; i++) {
-      y = y * this.myArray[i]; 
-      console.log(y);
-    }
-    return [this.myArray];
-  }
-};
- 
-sumAndMultiply.myArray = [2,3,4];
-sumAndMultiply.sumTotal();
 
+function multiplyArray(multArr) {
+  var multiplyLeftWithText = multiply(multArr[0], multArr[1]);
+  var multiplyTotalWithText = multiply(multiplyLeftWithText[0], multArr[2]);
+  var totalMultiply = multiplyTotalWithText[0];
+  return([totalMultiply, 'The numbers ' + multArr[0] + ',' + multArr[1] + ',' + multArr[2] + ' have a product of 24.']);
+}
+
+var testArray = [2, 3, 4];
 
 // Here is the test for multiplyArray(); uncomment it to run it
-// testMultiplyArray(testArray);
+testMultiplyArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. 
 

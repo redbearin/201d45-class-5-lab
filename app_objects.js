@@ -1,6 +1,6 @@
 'use strict';
 /////////////////////////////////////
-/* Problem 1 (this is your demo that we'll solve in class)
+/*Problem 1 (this is your demo that we'll solve in class)
 Write a function called sum() that takes in two numbers as arguments and then returns an array where the first 
 element is the sum of those numbers, and the second element is a concatenated string that EXACTLY follows this 
 example and uses the values that were input into the function:
@@ -11,8 +11,8 @@ Test this function by hand in the console to get it working, and when you think 
 call for the testSum() function below and check the console to see if the test passes.*/
 
 // Write your code here
-//eslint-disable-line
-/*//This section of the code is working now.
+//eslint-disable-line*/
+//This section of the code is working now.
 function sum(a, b) { 
   var resultSum = a + b;
   var resultString = 'The sum of ' + a + ' and ' + b + ' is ' + resultSum + '.';
@@ -21,7 +21,7 @@ function sum(a, b) {
 
 // Here is the test for sum(); uncomment it to run it
 testSum(4, 7);
-*/
+
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -69,15 +69,6 @@ passes.*/
 
 // Write your code here
 //eslint-disable-line
-function sumAndMultiply(a,b,c)
-  var sum_of_first_two = sum (a,b)[0];
-  var sum_of_three = sum(sum_of_first_two, c)[0];
-  var result_sum_str = a + ' and ' + b + ' and ' + c + 'sum to' + sum_of_three + ' .'.
-  debugger;
-
-
-  return [sum_of_three, product_of_three, result_sum_str, result_product_string];
-
 /*/This works, but you won't be able to test it using the test file since I created an object.
 var sumAndMultiply = {
   myNumbers: [1, 3, 4],
@@ -126,45 +117,20 @@ IMPORTANT DETAIL: You may not use the arithmetic operator + in this function. To
 Test this function by hand in the console to get it working, and when you think it is finished, uncomment the call for the testSumArray() function and see if the test passes.*/
 
 
-/*// Write your code here
-var testArray = [2, 3, 4]; //eslint-disable-line
+// Write your code here
+var testArray = [2, 3, 4]; 
+var sumLeft = sum(testArray[0], testArray[1]);
+var sumRight = sum(sumLeft, testArray[2]);
+var sumArr = sum(sum(sumLeft, testArray[2]));
 
-function sumArray(sumArr) { //eslint-disable-line
-*/
-
-// I did this in question 3. I just recopied my code here with a few minor modification to the text.
-// While this was not the approach requested in the assignment, it seems to work.
-
-
-/*var sumAndMultiply = {
-  myArray: [1, 3, 4],
-  sumTotal: function() {
-    var x = 0;
-    for (var i = 0; i < this.myArray.length; i++) {
-      x = x + this.myArray[i]; 
-      console.log(x);
-    }
-    return x;
-  },
-  multiplyTotal: function() {
-    var y = 1;
-    for (var i = 0; i < this.myArray.length; i++) {
-      y = y * this.myArray[i]; 
-      console.log(y);
-    }
-    return y;
-  }
+function sumArray(sumArr) { 
+  return [sumArr, testArray[0] + ', ' + testArray[1] + ', ' + testArray[2] + 'was passed in as an array of numbers, and 9 is their sum.']
 };
- 
-sumAndMultiply.myArray = [2,3,4];
-sumAndMultiply.sumTotal();
-console.log(sumAndMultiply.myArray[0] + " , " + sumAndMultiply.myArray[1] + " , " + sumAndMultiply.myArray[2] + " was passed in as an array of numbers and " + sumAndMultiply.sumTotal + " is their sum.");
 
-*/
 
 // Here is the test for sumArray(); uncomment it to run it
 
-// testSumArray(testArray);
+testSumArray(testArray);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -181,7 +147,7 @@ Test this function by hand in the console to get it working, and when you think 
 /*// Write your code here
 function multiplyArray(multArr) { //eslint-disable-line
 */
-//This works, but uses an object so the code checker is not going to work.
+/*//This works, but uses an object so the code checker is not going to work.
 var sumAndMultiply = {
   myArray: [1, 3, 4],
   sumTotal: function() {
